@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:uas/widget.dart';
 import 'package:uas/auth.dart';
+import 'package:uas/register.dart';
 
 class SignIn extends StatefulWidget {
   @override
@@ -9,10 +10,21 @@ class SignIn extends StatefulWidget {
 }
 
 class _SignInState extends State<SignIn> {
-  final AuthService _authService = AuthService();
+  final AuthService authService = new AuthService();
 
   final _formKey = GlobalKey<FormState>();
   String email, password;
+
+  bool loading = false;
+
+  SignIn() async {
+    if (_formKey.currentState.validate()) {
+
+      set
+
+     await authService.signInEmailAndPass(email, password);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +35,12 @@ class _SignInState extends State<SignIn> {
         elevation: 1.10,
         backgroundColor: Colors.transparent,
       ),
-      body: Container(
+      body: loading ? Container(
+        child: Center(
+        child: CircularProgressIndicator(),
+        ),
+      ):
+       Form(
         child: Container(
           margin: EdgeInsets.symmetric(horizontal: 24),
           child: Column(children: [
@@ -52,15 +69,19 @@ class _SignInState extends State<SignIn> {
             SizedBox(
               height: 24,
             ),
-            Container(
-              padding: EdgeInsets.symmetric(vertical: 18),
-              decoration: BoxDecoration(
-                  color: Colors.blue, borderRadius: BorderRadius.circular(30)),
-              width: MediaQuery.of(context).size.width - 48,
-              child: Text(
-                "Login",
-                textAlign: TextAlign.center,
-                style: TextStyle(color: Colors.white, fontSize: 16),
+            GestureDetector(
+              onTap: () {},
+              child: Container(
+                padding: EdgeInsets.symmetric(vertical: 18),
+                decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(30)),
+                width: MediaQuery.of(context).size.width - 48,
+                child: Text(
+                  "Login",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(color: Colors.white, fontSize: 16),
+                ),
               ),
             ),
             SizedBox(
@@ -79,7 +100,13 @@ class _SignInState extends State<SignIn> {
                       fontSize: 16,
                       decoration: TextDecoration.underline,
                       fontWeight: FontWeight.bold),
-                )
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context) => SignUp()));
+                  },
+                ),
               ],
             ),
             SizedBox(
