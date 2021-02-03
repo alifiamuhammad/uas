@@ -21,6 +21,9 @@ class _CreateState extends State<Create> {
 
   CreateQuizOnline() async {
     if (_formKey.currentState.validate()) {
+      setState(() {
+        loading = true;
+      });
       quizId = randomAlphaNumeric(16);
 
       Map<String, String> quizMap = {
@@ -32,8 +35,8 @@ class _CreateState extends State<Create> {
       await databaseService.addQuizData(quizMap, quizId).then((value) => {
             setState(() {
               loading = false;
-              Navigator.pushReplacement(
-                  context, MaterialPageRoute(builder: (context) => Question()));
+              Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (context) => Question(quizId)));
             })
           });
     }
@@ -103,7 +106,8 @@ class _CreateState extends State<Create> {
                         onTap: () {
                           CreateQuizOnline();
                         },
-                        child: blackButton(context, "Create Quiz")),
+                        child: blackButton(
+                            context: context, label: "Create Quiz")),
                     SizedBox(
                       height: 80,
                     ),

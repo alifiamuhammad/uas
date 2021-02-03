@@ -5,6 +5,8 @@ import 'package:flutter/services.dart';
 import 'package:uas/home.dart';
 import 'package:uas/widget.dart';
 
+import 'helper.dart';
+
 class SignUp extends StatefulWidget {
   @override
   _SignUpState createState() => _SignUpState();
@@ -28,6 +30,7 @@ class _SignUpState extends State<SignUp> {
           setState(() {
             loading = false;
           });
+          HelperFunctions.saveUserLoggedInDetails(isLoggedin: true);
           Navigator.pushReplacement(
               context, MaterialPageRoute(builder: (context) => Home()));
         }
@@ -37,6 +40,7 @@ class _SignUpState extends State<SignUp> {
 
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       appBar: AppBar(
         title: appBar(context),
         elevation: 1.10,
@@ -58,7 +62,12 @@ class _SignUpState extends State<SignUp> {
                     validator: (val) {
                       return val.isEmpty ? "Entr your name" : null;
                     },
-                    decoration: InputDecoration(hintText: "Name"),
+                    decoration: InputDecoration(
+                      hintText: "Name",
+                      hintStyle: TextStyle(fontSize: 15.0, color: Colors.white),
+                      enabledBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: Colors.white)),
+                    ),
                     onChanged: (val) {
                       email = val;
                     },
@@ -74,9 +83,8 @@ class _SignUpState extends State<SignUp> {
                     },
                   ),
                   TextFormField(
-                    validator: (val) {
-                      return val.isEmpty ? "Enter your password" : null;
-                    },
+                    obscureText: true,
+                    validator: validatePassword,
                     decoration: InputDecoration(hintText: "password"),
                     onChanged: (val) {
                       password = val;
@@ -146,6 +154,17 @@ String validateEmail(String value) {
     return "Email is Required";
   } else if (!regex.hasMatch(value))
     return 'Enter Valid Email';
+  else
+    return null;
+}
+
+String validatePassword(String value) {
+  Pattern pattern = r'^(?=.*?[a-z])(?=.*?[0-9]).{8,}$';
+  RegExp regex = new RegExp(pattern);
+  if (value.length == 0) {
+    return "Password is Required";
+  } else if (!regex.hasMatch(value))
+    return 'Password required: Alphabet, Number & 8 chars';
   else
     return null;
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:uas/helper.dart';
 import 'package:uas/register.dart';
 import 'package:uas/widget.dart';
 import 'package:uas/auth.dart';
@@ -28,6 +29,7 @@ class _SignInState extends State<SignIn> {
           setState(() {
             loading = false;
           });
+          HelperFunctions.saveUserLoggedInDetails(isLoggedin: true);
           Navigator.pushReplacement(
               context, MaterialPageRoute(builder: (context) => Home()));
         }
@@ -97,7 +99,7 @@ class _SignInState extends State<SignIn> {
                       onTap: () {
                         SignIn();
                       },
-                      child: blackButton(context, "login")),
+                      child: blackButton(context: context, label: "Login")),
                   SizedBox(
                     height: 18,
                   ),
