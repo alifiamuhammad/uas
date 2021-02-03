@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:uas/login.dart';
-import 'package:uas/register.dart';
+
+import 'package:uas/splas.dart';
 
 void main() {
   runApp(MyApp());
@@ -10,10 +10,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'UAS',
+      title: 'QuizApp',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark(),
-      home: SignUp(),
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      home: splashscreen(),
     );
   }
 }
