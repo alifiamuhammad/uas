@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:uas/auth.dart';
 import 'package:uas/login.dart';
+import 'package:uas/adada.dart';
 import 'package:flutter/services.dart';
 import 'package:uas/home.dart';
+import 'package:uas/splas.dart';
 import 'package:uas/widget.dart';
 
 import 'helper.dart';
@@ -32,7 +34,7 @@ class _SignUpState extends State<SignUp> {
           });
           HelperFunctions.saveUserLoggedInDetails(isLoggedin: true);
           Navigator.pushReplacement(
-              context, MaterialPageRoute(builder: (context) => Home()));
+              context, MaterialPageRoute(builder: (context) => SignIn()));
         }
       });
     }
@@ -44,7 +46,7 @@ class _SignUpState extends State<SignUp> {
       appBar: AppBar(
         title: appBar(context),
         elevation: 1.10,
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.white,
       ),
       body: loading
           ? Container(
@@ -59,6 +61,7 @@ class _SignUpState extends State<SignUp> {
                 child: Column(children: [
                   Spacer(),
                   TextFormField(
+                    style: TextStyle(color: Colors.white),
                     validator: (val) {
                       return val.isEmpty ? "Entr your name" : null;
                     },
@@ -76,39 +79,42 @@ class _SignUpState extends State<SignUp> {
                     height: 20,
                   ),
                   TextFormField(
+                    style: TextStyle(color: Colors.white),
                     validator: validateEmail,
-                    decoration: InputDecoration(hintText: "email"),
+                    decoration: InputDecoration(
+                      hintText: "email",
+                      hintStyle: TextStyle(fontSize: 15.0, color: Colors.white),
+                      enabledBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: Colors.white)),
+                    ),
                     onChanged: (val) {
                       email = val;
                     },
                   ),
                   TextFormField(
+                    style: TextStyle(color: Colors.white),
                     obscureText: true,
                     validator: validatePassword,
-                    decoration: InputDecoration(hintText: "password"),
+                    decoration: InputDecoration(
+                      hintText: "password",
+                      hintStyle: TextStyle(fontSize: 15.0, color: Colors.white),
+                      enabledBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: Colors.white)),
+                    ),
                     onChanged: (val) {
                       password = val;
                     },
                   ),
                   SizedBox(
-                    height: 6,
+                    height: 20,
                   ),
                   GestureDetector(
                     onTap: () {
                       SignUp();
                     },
                     child: Container(
-                      padding: EdgeInsets.symmetric(vertical: 18),
-                      decoration: BoxDecoration(
-                          color: Colors.blue,
-                          borderRadius: BorderRadius.circular(30)),
-                      width: MediaQuery.of(context).size.width - 48,
-                      child: Text(
-                        "Register",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(color: Colors.white, fontSize: 16),
-                      ),
-                    ),
+                        child:
+                            blackButton(context: context, label: "Register")),
                   ),
                   SizedBox(
                     height: 18,

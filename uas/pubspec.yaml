@@ -32,6 +32,7 @@ dependencies:
   shared_preferences: ^0.5.6+3
   random_string: ^2.0.1
   loading_indicator: "^1.0.0"
+  animated_splash: ^1.0.0
   
   
 

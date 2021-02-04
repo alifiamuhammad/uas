@@ -28,7 +28,9 @@ class _QuestionState extends State<Question> {
         "option3": option3,
         "option4": option4,
       };
-      databaseService.addQuestionData(questionMap, widget.quizId).then((value) {
+      await databaseService
+          .addQuestionData(questionMap, widget.quizId)
+          .then((value) {
         setState(() {
           loading = false;
         });

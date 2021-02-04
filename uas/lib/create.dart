@@ -3,7 +3,6 @@ import 'package:random_string/random_string.dart';
 import 'package:uas/database.dart';
 import 'package:uas/question.dart';
 import 'package:uas/widget.dart';
-import 'package:uas/question.dart';
 
 class Create extends StatefulWidget {
   @override
@@ -109,7 +108,7 @@ class _CreateState extends State<Create> {
                         child: blackButton(
                             context: context, label: "Create Quiz")),
                     SizedBox(
-                      height: 80,
+                      height: 60,
                     ),
                   ],
                 ),

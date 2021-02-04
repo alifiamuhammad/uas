@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:uas/home.dart';
 import 'package:uas/login.dart';
 import 'package:uas/helper.dart';
+import 'package:uas/splas.dart';
 
 void main() {
   runApp(MyApp());
@@ -38,7 +39,7 @@ class _MyAppState extends State<MyApp> {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: (_isLoggedin ?? false) ? Home() : SignIn(),
+      home: (_isLoggedin ?? false) ? Home() : splashscreen(),
     );
   }
 }
