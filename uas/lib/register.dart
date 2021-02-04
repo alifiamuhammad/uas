@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:uas/auth.dart';
 import 'package:uas/login.dart';
@@ -41,6 +42,27 @@ class _SignUpState extends State<SignUp> {
   }
 
   Widget build(BuildContext context) {
+    Future<void> _handleClickMe() async {
+      return showDialog<void>(
+        context: context,
+        barrierDismissible: false, // user must tap button!
+        builder: (BuildContext context) {
+          return CupertinoAlertDialog(
+            title: Text('Confirm'),
+            content: Text('Confirm to finish your Registration'),
+            actions: <Widget>[
+              CupertinoDialogAction(
+                child: Text('Confirm'),
+                onPressed: () {
+                  SignUp();
+                },
+              ),
+            ],
+          );
+        },
+      );
+    }
+
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
@@ -110,7 +132,7 @@ class _SignUpState extends State<SignUp> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      SignUp();
+                      _handleClickMe();
                     },
                     child: Container(
                         child:
@@ -143,7 +165,7 @@ class _SignUpState extends State<SignUp> {
                     ],
                   ),
                   SizedBox(
-                    height: 40,
+                    height: 30,
                   ),
                 ]),
               ),

@@ -49,7 +49,6 @@ class _CreateState extends State<Create> {
         title: appBar(context),
         backgroundColor: Colors.transparent,
         elevation: 0.0,
-        iconTheme: IconThemeData(color: Colors.black),
         brightness: Brightness.light,
       ),
       body: loading

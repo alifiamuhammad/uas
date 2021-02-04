@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:uas/database.dart';
 import 'package:uas/login.dart';
+import 'package:uas/play_quiz.dart';
 
 import 'package:uas/widget.dart';
 import 'package:uas/create.dart';
@@ -54,6 +55,17 @@ class _HomeState extends State<Home> {
     return Scaffold(
       appBar: AppBar(
         title: appBar(context),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(
+              Icons.exit_to_app,
+              color: Colors.black,
+            ),
+            onPressed: () {
+              // do something
+            },
+          )
+        ],
         backgroundColor: Colors.transparent,
         elevation: 0.0,
         brightness: Brightness.light,
@@ -86,7 +98,7 @@ class QuizTile extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => SignIn()));
+            context, MaterialPageRoute(builder: (context) => PlayQuiz(quizId)));
       },
       child: Container(
           margin: EdgeInsets.only(bottom: 8),

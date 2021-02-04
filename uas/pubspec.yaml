@@ -33,6 +33,7 @@ dependencies:
   random_string: ^2.0.1
   loading_indicator: "^1.0.0"
   animated_splash: ^1.0.0
+  firebase_analytics: ^5.0.2
   
   
 
