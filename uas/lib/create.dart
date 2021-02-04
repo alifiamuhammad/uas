@@ -64,10 +64,15 @@ class _CreateState extends State<Create> {
                 child: Column(
                   children: [
                     TextFormField(
+                      style: TextStyle(color: Colors.white),
                       validator: (val) =>
                           val.isEmpty ? "Enter image url" : null,
                       decoration: InputDecoration(
                         hintText: "Quiz Image url",
+                        hintStyle:
+                            TextStyle(fontSize: 15.0, color: Colors.white),
+                        enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white)),
                       ),
                       onChanged: (val) {
                         quizImageUrl = val;
@@ -77,10 +82,15 @@ class _CreateState extends State<Create> {
                       height: 8,
                     ),
                     TextFormField(
+                      style: TextStyle(color: Colors.white),
                       validator: (val) =>
                           val.isEmpty ? "Enter Quiz title" : null,
                       decoration: InputDecoration(
                         hintText: "Quiz Title",
+                        hintStyle:
+                            TextStyle(fontSize: 15.0, color: Colors.white),
+                        enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white)),
                       ),
                       onChanged: (val) {
                         quizTitle = val;
@@ -90,10 +100,15 @@ class _CreateState extends State<Create> {
                       height: 8,
                     ),
                     TextFormField(
+                      style: TextStyle(color: Colors.white),
                       validator: (val) =>
                           val.isEmpty ? "Enter Quiz description" : null,
                       decoration: InputDecoration(
                         hintText: "Quiz description",
+                        hintStyle:
+                            TextStyle(fontSize: 15.0, color: Colors.white),
+                        enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white)),
                       ),
                       onChanged: (val) {
                         quizDescription = val;

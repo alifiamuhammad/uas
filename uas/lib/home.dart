@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:uas/database.dart';
 import 'package:uas/login.dart';
 import 'package:uas/play_quiz.dart';
-
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:uas/helper.dart';
 import 'package:uas/widget.dart';
 import 'package:uas/create.dart';
 
@@ -12,6 +13,12 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  static Future<bool> getUserLoggedInDetailss() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    await prefs.clear();
+  }
+
   Stream quizStream;
   DatabaseService databaseService = new DatabaseService();
 
@@ -62,6 +69,11 @@ class _HomeState extends State<Home> {
               color: Colors.black,
             ),
             onPressed: () {
+              getUserLoggedInDetailss();
+
+              Navigator.pushReplacement(
+                  context, MaterialPageRoute(builder: (context) => SignIn()));
+
               // do something
             },
           )
