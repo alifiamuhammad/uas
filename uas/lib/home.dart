@@ -60,6 +60,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: appBar(context),
         actions: <Widget>[
@@ -78,7 +79,7 @@ class _HomeState extends State<Home> {
             },
           )
         ],
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.white,
         elevation: 0.0,
         brightness: Brightness.light,
       ),
@@ -110,7 +111,7 @@ class QuizTile extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => PlayQuiz(quizId)));
+            context, MaterialPageRoute(builder: (context) => QuizPlay(quizId)));
       },
       child: Container(
           margin: EdgeInsets.only(bottom: 8),

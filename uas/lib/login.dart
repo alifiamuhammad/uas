@@ -78,6 +78,7 @@ class _SignInState extends State<SignIn> {
                     height: 24,
                   ),
                   TextFormField(
+                    obscureText: true,
                     style: TextStyle(color: Colors.white),
                     validator: (val) {
                       return val.isEmpty ? "Enter password" : null;

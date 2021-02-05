@@ -62,10 +62,15 @@ class _QuestionState extends State<Question> {
                   child: Column(
                     children: [
                       TextFormField(
+                        style: TextStyle(color: Colors.white),
                         validator: (val) =>
                             val.isEmpty ? "Enter the question" : null,
                         decoration: InputDecoration(
                           hintText: "Question",
+                          hintStyle:
+                              TextStyle(fontSize: 15.0, color: Colors.white),
+                          enabledBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white)),
                         ),
                         onChanged: (val) {
                           question = val;
@@ -75,10 +80,15 @@ class _QuestionState extends State<Question> {
                         height: 8,
                       ),
                       TextFormField(
+                        style: TextStyle(color: Colors.white),
                         validator: (val) =>
                             val.isEmpty ? "this space cannot blank" : null,
                         decoration: InputDecoration(
                           hintText: "Option1 (correct answer)",
+                          hintStyle:
+                              TextStyle(fontSize: 15.0, color: Colors.white),
+                          enabledBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white)),
                         ),
                         onChanged: (val) {
                           option1 = val;
@@ -88,10 +98,15 @@ class _QuestionState extends State<Question> {
                         height: 8,
                       ),
                       TextFormField(
+                        style: TextStyle(color: Colors.white),
                         validator: (val) =>
                             val.isEmpty ? "this space cannot blank" : null,
                         decoration: InputDecoration(
                           hintText: "Option2",
+                          hintStyle:
+                              TextStyle(fontSize: 15.0, color: Colors.white),
+                          enabledBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white)),
                         ),
                         onChanged: (val) {
                           option2 = val;
@@ -101,10 +116,15 @@ class _QuestionState extends State<Question> {
                         height: 8,
                       ),
                       TextFormField(
+                        style: TextStyle(color: Colors.white),
                         validator: (val) =>
                             val.isEmpty ? "this space cannot blank" : null,
                         decoration: InputDecoration(
                           hintText: "Option3",
+                          hintStyle:
+                              TextStyle(fontSize: 15.0, color: Colors.white),
+                          enabledBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white)),
                         ),
                         onChanged: (val) {
                           option3 = val;
@@ -114,10 +134,15 @@ class _QuestionState extends State<Question> {
                         height: 8,
                       ),
                       TextFormField(
+                        style: TextStyle(color: Colors.white),
                         validator: (val) =>
                             val.isEmpty ? "this space cannot blank" : null,
                         decoration: InputDecoration(
                           hintText: "Option4",
+                          hintStyle:
+                              TextStyle(fontSize: 15.0, color: Colors.white),
+                          enabledBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white)),
                         ),
                         onChanged: (val) {
                           option4 = val;
